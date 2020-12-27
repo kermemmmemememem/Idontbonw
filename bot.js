@@ -116,6 +116,28 @@ client.on("error", e => {
   console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
 });
 
+
+client.on("message", message => {
+  const dm = client.channels.get("790484155615936522");
+  if (message.channel.type === "dm") {
+const dcse = new Discord.RichEmbed()
+.setTitle("Dm'den Mesaj")
+
+.addField(':black_small_square: Gönderen:', ` \`${message.author.tag}\` `)
+.addField(':black_small_square: Mesaj', ` \`${message.content} \``)
+.setImage("https://cdn.discordapp.com/attachments/777461715968720937/785140639737184306/yorumyoq.png")
+    .setThumbnail("https://cdn.discordapp.com/attachments/777461715968720937/786520768787513364/b32356d93573bc9e737046d6fbf6d6b7.webp")
+dm.send(dcse)
+
+
+
+
+    if (message.author.bot) return;
+      }
+    });
+ 
+
+
 client.on("guildCreate", guild => {
   
   let dcs_kanal = client.channels.get("784776025393201162")
@@ -140,6 +162,44 @@ client.on("guildDelete", guild => {
 .addField(':black_small_square: Üye Sayısı', `\`${guild.members.size}\``)
 .addField(':black_small_square: Kurucu', `\`${guild.owner.user.tag}\``)
 dcs_kanal.send(dcs)
+  
+  
 });
+
+
+client.on('message', async msg => {
+      let preffix = db.fetch(`prefix_${msg.guild.id}`)
+      
+
+    const emdebiye = new Discord.RichEmbed()
+    .setTitle(`Yorum`)
+    .setColor(`#99a3ec`)
+     .setDescription(`Bu sunucuda kullanılan prefix **${preffix ? preffix : ayarlar.prefix}** olarak ayarlanmıştır. **__${preffix ? preffix : ayarlar.prefix}yardım__** yazarak yardım komutlarını görebilirsiniz. Eğer dili değiştirmek istiyorsanız **__${preffix ? preffix : ayarlar.prefix}dil__** yazmanız yeterlidir. \n\n The prefix used on this server is set to **${preffix ? preffix : ayarlar.prefix}** \n if you want, you can see the help commands by typing **__${preffix ? preffix : ayarlar.prefix}help__** If you want to change the language, just type **__${preffix ? preffix : ayarlar.prefix}language__** \n\n
+      `)
+    
+    .setThumbnail("https://cdn.discordapp.com/attachments/777461715968720937/786520768787513364/b32356d93573bc9e737046d6fbf6d6b7.webp")
+.setImage("https://cdn.discordapp.com/attachments/777461715968720937/785140639737184306/yorumyoq.png")
+    
+  if (msg.content === `yorum`)  msg.channel.send(emdebiye);
+    
+}); 
+
+client.on('message', async msg => {
+      let preffix = db.fetch(`prefix_${msg.guild.id}`)
+      
+
+    const emdebiye = new Discord.RichEmbed()
+    .setTitle(`Yorum`)
+    .setColor(`#99a3ec`)
+      .setDescription(`Bu sunucuda kullanılan prefix **${preffix ? preffix : ayarlar.prefix}** olarak ayarlanmıştır. **__${preffix ? preffix : ayarlar.prefix}yardım__** yazarak yardım komutlarını görebilirsiniz. Eğer dili değiştirmek istiyorsanız **__${preffix ? preffix : ayarlar.prefix}dil__** yazmanız yeterlidir. \n\n The prefix used on this server is set to **${preffix ? preffix : ayarlar.prefix}** \n if you want, you can see the help commands by typing **__${preffix ? preffix : ayarlar.prefix}help__** If you want to change the language, just type **__${preffix ? preffix : ayarlar.prefix}language__** \n\n
+      `)
+    
+    .setThumbnail("https://cdn.discordapp.com/attachments/777461715968720937/786520768787513364/b32356d93573bc9e737046d6fbf6d6b7.webp")
+.setImage("https://cdn.discordapp.com/attachments/777461715968720937/785140639737184306/yorumyoq.png")
+    
+  if (msg.content === `Yorum`)  msg.channel.send(emdebiye);
+    
+});
+
 
 client.login(ayarlar.isotoken);

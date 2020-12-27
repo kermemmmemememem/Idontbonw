@@ -22,14 +22,14 @@ exports.run = async(client, message, args, func) => {
     }
     
 db.delete(`prefix_${message.guild.id}`)
-message.channel.send(`<:Yorum_tik:786578062955118612> Prefix başarıyla sıfırlandı. Prefix artık **${ayarlar.prefix}**`)
+message.channel.send(`<:Yorum_tik:787932687754985493> Prefix başarıyla sıfırlandı. Prefix artık **${ayarlar.prefix}**`)
     return
   }
   
   if (!args[0])
   return message.channel.send(`Bu sunucudaki prefixim: **${preffix ? preffix : ayarlar.prefix}**`)
 db.set(`prefix_${message.guild.id}`, args[0])
- message.channel.send(`<:Yorum_tik:786578062955118612> Prefix başarıyla **${args[0]}** olarak ayarlandı.\n${args[0]}prefix sıfırla yazarak prefixi sıfırlayabilirsiniz.`)
+ message.channel.send(`<:Yorum_tik:787932687754985493>  Prefix başarıyla **${args[0]}** olarak ayarlandı.\n${args[0]}prefix sıfırla yazarak prefixi sıfırlayabilirsiniz.`)
 
 
 

@@ -7,9 +7,9 @@ var prefix = ayarlar.prefix;
 
 module.exports = client => {
 var oyun = [
-        "y!dil | y!language",
-  "y!prefix | y!language",
-  "y!yardım | y!language",
+        "Send 'Yorum' For prefix.",
+  "Prefix için 'Yorum' yaz.",
+
     ];
 
     setInterval(function() {
